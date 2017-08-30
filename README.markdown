@@ -4,7 +4,7 @@ About Template
 ----------------------
 # Lagom Framework + Kafka Integration
 
- This is an template which only consumes data from a topic using external kafka in Lagom framework.
+ This is a template which only consumes data from a topic using external kafka in Lagom framework.
 
  ---
 
