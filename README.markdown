@@ -1,10 +1,10 @@
-A [Giter8][g8] template for using external kafka provided by Lagom framework only for subscribing.
+A [Giter8][g8] template for only consuming data from kafka topic using external kafka in Lagom framework.
 
 About Template
 ----------------------
 # Lagom Framework + Kafka Integration
 
- This is an template which only subscribes to a topic using external kafka in Lagom framework.
+ This is an template which only consumes data from a topic using external kafka in Lagom framework.
 
  ---
 
