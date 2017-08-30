@@ -16,7 +16,7 @@ public interface KafkaService extends Service {
 
     @Override
     default Descriptor descriptor() {
-        return named("helloservice").withCalls().publishing(
+        return named("kafkaservice").withCalls().publishing(
                 topic(GREETINGS_TOPIC, this::greetingsTopic)
         ).withAutoAcl(true);
     }
