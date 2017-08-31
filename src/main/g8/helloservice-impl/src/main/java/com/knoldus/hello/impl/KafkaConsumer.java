@@ -2,25 +2,39 @@ package com.knoldus.hello.impl;
 
 import akka.Done;
 import akka.stream.javadsl.Flow;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.inject.Singleton;
 import com.knoldus.kafka.KafkaService;
 import com.knoldus.kafka.GreetingMessage;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.inject.Inject;
 
-@Singleton public class KafkaConsumer {
+@Singleton
+public class KafkaConsumer {
 
-  private final KafkaService kafkaService;
+    private final KafkaService kafkaService;
+    private ObjectMapper jsonMapper = new ObjectMapper();
 
-  @Inject public KafkaConsumer(KafkaService kafkaService) {
-    this.kafkaService = kafkaService;
-    kafkaService.greetingsTopic().subscribe()
-        .atLeastOnce(Flow.fromFunction(this::displayMessage));
-  }
+    @Inject
+    public KafkaConsumer(KafkaService kafkaService) {
+        this.kafkaService = kafkaService;
+        kafkaService.greetingsTopic().subscribe()
+                .atLeastOnce(Flow.fromFunction(this::displayMessage));
+    }
 
-  private Done displayMessage(GreetingMessage message) {
-    System.out.println("Message :::::::::::  " + message);
-    return Done.getInstance();
-  }
+    private Done displayMessage(String message) {
+        System.out.println("Message :::::::::::  " + message);
+        try {
+            GreetingMessage greetingMessage = jsonMapper.readValue(message, GreetingMessage.class);
+            if (StringUtils.isNotEmpty(greetingMessage.message)) {
+                System.out.println("Action performed :::::::::::  " + message);
 
+                // Do your action here
+            }
+        } catch (Exception ex) {
+            System.out.println("Error in consuming kafka message");
+        }
+        return Done.getInstance();
+    }
 }

@@ -82,7 +82,6 @@
         <version>${lagom.version}</version>
         <configuration>
           <kafkaEnabled>false</kafkaEnabled>
-          <kafkaAddress>localhost:9092</kafkaAddress>
         </configuration>
       </plugin>
       <plugin>

@@ -9,7 +9,7 @@ import static com.lightbend.lagom.javadsl.api.Service.topic;
 
 public interface KafkaService extends Service {
 
-    Topic<GreetingMessage> greetingsTopic();
+    Topic<String> greetingsTopic();
 
     String GREETINGS_TOPIC = "greetings";
 
