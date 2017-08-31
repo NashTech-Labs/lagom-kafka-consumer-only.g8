@@ -7,7 +7,6 @@ import com.lightbend.lagom.javadsl.api.broker.Topic;
 import static com.lightbend.lagom.javadsl.api.Service.named;
 import static com.lightbend.lagom.javadsl.api.Service.topic;
 
-
 public interface KafkaService extends Service {
 
     Topic<GreetingMessage> greetingsTopic();
@@ -16,7 +15,7 @@ public interface KafkaService extends Service {
 
     @Override
     default Descriptor descriptor() {
-        return named("kafkaservice").withCalls().publishing(
+        return named("kafkaservice").withTopics(
                 topic(GREETINGS_TOPIC, this::greetingsTopic)
         ).withAutoAcl(true);
     }
