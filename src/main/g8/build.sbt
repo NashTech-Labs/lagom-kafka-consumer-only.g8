@@ -5,5 +5,5 @@ lazy val root = (project in file(".")).
       organization := "com.example",
       scalaVersion := "2.11.8"
     )),
-    name := "lagom-kafka"
+    name := "lagom-kafka-consumer-only"
   )
