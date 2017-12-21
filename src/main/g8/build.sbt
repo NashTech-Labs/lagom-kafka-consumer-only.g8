@@ -6,6 +6,8 @@ scalaVersion in ThisBuild := "2.11.8"
 
 lagomKafkaEnabled in ThisBuild := false
 
+lagomCassandraEnabled in ThisBuild := false
+
 lazy val `helloservice` = (project in file("."))
   .aggregate(`helloservice-api`, `helloservice-impl`, `kafka-connect`)
 
