@@ -1,4 +1,4 @@
-package com.knoldus.hello.impl;
+package com.knoldus.hello.kafka;
 
 import akka.Done;
 import akka.stream.javadsl.Flow;
