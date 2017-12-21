@@ -49,8 +49,10 @@ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 -
 
 Step 2 : Send message
 
+```bash
 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic greetings
 {"message" : "HI"}
+```
 
 ## Application runs on port `http://localhost:9000`
 
