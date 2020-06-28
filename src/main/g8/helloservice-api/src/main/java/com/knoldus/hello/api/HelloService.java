@@ -1,5 +1,6 @@
 package com.knoldus.hello.api;
 
+import akka.NotUsed;
 import com.lightbend.lagom.javadsl.api.Descriptor;
 import com.lightbend.lagom.javadsl.api.Service;
 import com.lightbend.lagom.javadsl.api.ServiceCall;
@@ -9,7 +10,7 @@ import static com.lightbend.lagom.javadsl.api.Service.pathCall;
 
 public interface HelloService extends Service {
 
-    ServiceCall<String, String> hello(String id);
+    ServiceCall<NotUsed, String> hello(String id);
 
     @Override
     default Descriptor descriptor() {

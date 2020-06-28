@@ -13,12 +13,10 @@ import javax.inject.Inject;
 @Singleton
 public class KafkaConsumer {
 
-    private final KafkaService kafkaService;
-    private ObjectMapper jsonMapper = new ObjectMapper();
+    private final ObjectMapper jsonMapper = new ObjectMapper();
 
     @Inject
     public KafkaConsumer(KafkaService kafkaService) {
-        this.kafkaService = kafkaService;
         kafkaService.greetingsTopic().subscribe()
                 .atLeastOnce(Flow.fromFunction(this::displayMessage));
     }
