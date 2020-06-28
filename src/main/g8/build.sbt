@@ -2,7 +2,8 @@ organization in ThisBuild := "com.knoldus"
 
 version in ThisBuild := "1.0-SNAPSHOT"
 
-scalaVersion in ThisBuild := "2.11.8"
+// the Scala version that will be used for cross-compiled libraries
+scalaVersion in ThisBuild := "2.13.0"
 
 lagomKafkaEnabled in ThisBuild := false
 
